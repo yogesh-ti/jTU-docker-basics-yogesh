@@ -13,7 +13,7 @@ COPY app/src ./src
 
 # Run tests to validate app
 FROM app-base AS test
-RUN apk add --no-cache python3 g++ make
+RUN apk add --no-cache python2 g++ make
 RUN yarn install
 RUN yarn test
 
