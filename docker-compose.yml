@@ -1,12 +1,27 @@
 version: "3.7"
 
 services:
-  docs:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: dev
+  app_1:
+    build: ./app_1
     ports:
-      - 8000:8000
+      - 3000:3000
     volumes:
-      - ./:/app
+      - ./:/app_1
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
+
+  mysql:
+    image: mysql:8.0-oracle
+    volumes:
+      - todo-mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: todos
+    command:
+      mysql -u root -p secret
+    
+volumes:
+  todo-mysql-data:
