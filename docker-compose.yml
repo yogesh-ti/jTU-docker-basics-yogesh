@@ -8,10 +8,11 @@ services:
     volumes:
       - ./:/app_1
     environment:
-      MYSQL_HOST: mysql
+      MYSQL_HOST: localhost
       MYSQL_USER: root
       MYSQL_PASSWORD: secret
       MYSQL_DB: todos
+    network_mode: host
   
   app_2:
     build: ./app_2
