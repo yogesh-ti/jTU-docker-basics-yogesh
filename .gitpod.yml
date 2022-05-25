@@ -1,7 +1,11 @@
+image:
+  file: .gitpod.dockerfile
+
 tasks:
   - init: |
       docker-compose pull
   - command: |
+      mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root_password';"
       docker-compose up
 
 ports:
