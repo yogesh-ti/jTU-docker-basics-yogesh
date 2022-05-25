@@ -12,6 +12,18 @@ services:
       MYSQL_USER: root
       MYSQL_PASSWORD: secret
       MYSQL_DB: todos
+  
+  app_2:
+    build: ./app_2
+    ports:
+      - 8000:3000
+    volumes:
+      - ./:/app_2
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DB: todos
 
   mysql:
     image: mysql:8.0-oracle
@@ -20,8 +32,6 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: todos
-    command:
-      mysql -u root -p secret
     
 volumes:
   todo-mysql-data:
