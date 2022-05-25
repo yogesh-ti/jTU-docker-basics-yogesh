@@ -6,7 +6,7 @@ tasks:
       docker-compose pull
   - command: |
       mysql -e "CREATE DATABASE todos"
-      mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';"
+      mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'secret';"
       docker-compose up
 
 ports:
