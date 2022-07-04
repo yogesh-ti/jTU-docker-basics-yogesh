@@ -17,7 +17,7 @@ services:
   app_2:
     build: ./app_2
     ports:
-      - 8000:3000
+      - 8000:8000
     volumes:
       - ./:/app_2
     environment:
